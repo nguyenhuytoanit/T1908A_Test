@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+
+<a href="/add-book">Thêm sách</a>
+<a href="/listPublishing">Danh sách nhà sách tác</a>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="w3-container">
+                    <table class="w3-table w3-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Publishing</th>
+                        </tr>
+                        <tr th:each="book : ${books}">
+                            <th scope="row" th:text="${book.id}"></th>
+                            <td th:text="${book.name}"></td>
+                            <td th:text="${book.author}"></td>
+                            <td th:text="${book.publisher.name}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
